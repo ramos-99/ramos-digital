@@ -472,29 +472,73 @@
         </section>
 
         <section class="py-32 px-6">
-            <div class="max-w-3xl mx-auto">
+            <div class="max-w-2xl mx-auto">
                 <div class="text-center mb-16 reveal">
                     <h2 class="font-heading text-4xl md:text-5xl font-bold">Questions<span
                             class="text-electric-400">?</span></h2>
                 </div>
 
-                <div class="space-y-4 reveal">
-                    <div class="p-6 rounded-2xl glass-card border border-white/10">
-                        <h3 class="font-semibold mb-2">Do I pay monthly fees?</h3>
-                        <p class="text-white/50 text-sm">No. You pay once, and you own your website forever. Hosting
-                            is
-                            typically €10-20/month on platforms like Vercel or Netlify, which you control.</p>
+                <div class="space-y-4 reveal" id="faq-accordion">
+                    <!-- FAQ Item 1 -->
+                    <div
+                        class="accordion-item bg-white/5 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-electric-400/30">
+                        <button
+                            class="accordion-trigger w-full flex items-center justify-between p-5 text-left cursor-pointer group">
+                            <span class="font-medium text-white">Do I pay monthly fees?</span>
+                            <span
+                                class="accordion-icon w-6 h-6 flex items-center justify-center text-white/50 group-hover:text-white transition-all duration-300">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
+                            <p class="px-5 pb-5 text-gray-400 text-sm leading-relaxed">No. You pay once, and you own
+                                your website forever. Hosting is typically €10-20/month on platforms like Vercel or
+                                Netlify, which you control.</p>
+                        </div>
                     </div>
-                    <div class="p-6 rounded-2xl glass-card border border-white/10">
-                        <h3 class="font-semibold mb-2">How long does it take?</h3>
-                        <p class="text-white/50 text-sm">Landing pages: 1-2 weeks. Corporate sites: 3-4 weeks.
-                            E-commerce: 4-8 weeks. Timelines depend on your feedback speed.</p>
+
+                    <!-- FAQ Item 2 -->
+                    <div
+                        class="accordion-item bg-white/5 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-electric-400/30">
+                        <button
+                            class="accordion-trigger w-full flex items-center justify-between p-5 text-left cursor-pointer group">
+                            <span class="font-medium text-white">How long does it take?</span>
+                            <span
+                                class="accordion-icon w-6 h-6 flex items-center justify-center text-white/50 group-hover:text-white transition-all duration-300">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
+                            <p class="px-5 pb-5 text-gray-400 text-sm leading-relaxed">Landing pages: 1-2 weeks.
+                                Corporate sites: 3-4 weeks. E-commerce: 4-8 weeks. Timelines depend on your feedback
+                                speed.</p>
+                        </div>
                     </div>
-                    <div class="p-6 rounded-2xl glass-card border border-white/10">
-                        <h3 class="font-semibold mb-2">Can I edit text myself?</h3>
-                        <p class="text-white/50 text-sm">Yes! We can integrate a simple CMS (like Sanity or
-                            Contentful)
-                            so you can update content without touching code.</p>
+
+                    <!-- FAQ Item 3 -->
+                    <div
+                        class="accordion-item bg-white/5 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-electric-400/30">
+                        <button
+                            class="accordion-trigger w-full flex items-center justify-between p-5 text-left cursor-pointer group">
+                            <span class="font-medium text-white">Can I edit text myself?</span>
+                            <span
+                                class="accordion-icon w-6 h-6 flex items-center justify-center text-white/50 group-hover:text-white transition-all duration-300">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
+                            <p class="px-5 pb-5 text-gray-400 text-sm leading-relaxed">Yes! We can integrate a simple
+                                CMS (like Sanity or Contentful) so you can update content without touching code.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -572,6 +616,36 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+            trigger.addEventListener('click', function () {
+                const item = this.closest('.accordion-item');
+                const content = item.querySelector('.accordion-content');
+                const icon = item.querySelector('.accordion-icon');
+                const isOpen = item.classList.contains('active');
+
+                // Close all other items
+                document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                        otherItem.querySelector('.accordion-icon').style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                // Toggle current item
+                if (isOpen) {
+                    item.classList.remove('active');
+                    content.style.maxHeight = null;
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    item.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(45deg)';
+                }
             });
         });
     </script>
