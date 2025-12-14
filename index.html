@@ -242,8 +242,10 @@
             <div class="flex items-center gap-6">
                 <!-- Group 1: Internal Scroll Links -->
                 <div class="hidden md:flex items-center gap-5">
-                    <a href="#about" class="text-sm text-white/50 hover:text-white transition-colors">About</a>
-                    <a href="#projects" class="text-sm text-white/50 hover:text-white transition-colors">Projects</a>
+                    <a href="#about" class="text-sm text-white/50 hover:text-white transition-colors"
+                        data-i18n="nav_about">About</a>
+                    <a href="#projects" class="text-sm text-white/50 hover:text-white transition-colors"
+                        data-i18n="nav_projects">Projects</a>
                 </div>
 
                 <!-- Visual Separator -->
@@ -252,7 +254,7 @@
                 <!-- Group 2: Product Link -->
                 <a href="web.html"
                     class="hidden md:flex items-center gap-1.5 text-sm text-white font-medium hover:text-electric-400 transition-colors group">
-                    <span>Solutions</span>
+                    <span data-i18n="nav_solutions">Solutions</span>
                     <svg class="w-3.5 h-3.5 text-white/50 group-hover:text-electric-400 transition-colors" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -262,12 +264,27 @@
 
                 <!-- Group 3: Primary Action -->
                 <button id="contactBtn"
-                    class="text-sm px-5 py-2 rounded-full bg-white text-black font-semibold hover:scale-105 hover:bg-gray-100 transition-all shadow-lg shadow-white/10">
+                    class="text-sm px-5 py-2 rounded-full bg-white text-black font-semibold hover:scale-105 hover:bg-gray-100 transition-all shadow-lg shadow-white/10"
+                    data-i18n="nav_contact">
                     Contact
                 </button>
             </div>
         </div>
     </nav>
+
+    <!-- Language Switcher (Fixed Top-Right) -->
+    <div id="lang-switcher" class="fixed top-6 right-6 z-50 opacity-0 animate-fade-down" style="animation-delay: 0.1s;">
+        <div class="flex items-center bg-white/5 backdrop-blur-md border border-white/10 rounded-full p-1">
+            <button id="lang-btn-pt"
+                class="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 text-gray-400 hover:text-white">
+                PT
+            </button>
+            <button id="lang-btn-en"
+                class="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 bg-white text-black shadow-sm">
+                EN
+            </button>
+        </div>
+    </div>
 
     <main class="relative">
 
@@ -288,25 +305,26 @@
                 <div
                     class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-10">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span class="text-sm text-white/70 font-mono">Available for projects</span>
+                    <span class="text-sm text-white/70 font-mono" data-i18n="hero_status">Available for projects</span>
                 </div>
 
                 <h1 class="font-heading text-7xl md:text-[9rem] font-bold tracking-tighter mb-8 leading-[0.9]">
                     Martim<br class="md:hidden"> Ramos<span class="text-electric-400">.</span>
                 </h1>
 
-                <p class="text-xl md:text-2xl text-white/50 mb-4 font-light max-w-2xl mx-auto">
+                <p class="text-xl md:text-2xl text-white/50 mb-4 font-light max-w-2xl mx-auto"
+                    data-i18n="hero_subtitle">
                     Computer Engineering @ <span class="text-white">Técnico Lisboa</span>
                 </p>
 
-                <p class="text-lg text-white/30 max-w-xl mx-auto mb-14 leading-relaxed">
+                <p class="text-lg text-white/30 max-w-xl mx-auto mb-14 leading-relaxed" data-i18n="hero_desc">
                     Crafting high-performance digital experiences with precision engineering.
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="#about"
                         class="group px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-lg shadow-white/10">
-                        <span>Explore</span>
+                        <span data-i18n="hero_explore">Explore</span>
                         <svg class="w-4 h-4 group-hover:translate-y-1 transition-transform" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -314,7 +332,7 @@
                     </a>
                     <a href="web.html"
                         class="px-8 py-4 rounded-xl text-white/60 hover:text-white border border-white/10 hover:border-white/20 transition-all flex items-center gap-2">
-                        <span>View Solutions</span>
+                        <span data-i18n="hero_solutions">View Solutions</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M7 17L17 7M17 7H7M17 7V17" />
@@ -440,10 +458,11 @@
             <!-- Content Container -->
             <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="max-w-2xl">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
+                        data-i18n="feature_title">
                         It's not about<br>saving time.
                     </h2>
-                    <p class="text-lg text-white/60 leading-relaxed mb-8">
+                    <p class="text-lg text-white/60 leading-relaxed mb-8" data-i18n="feature_desc">
                         It’s about feeling like you’re never wasting it. Engineered for flow states.
                     </p>
                     <a href="mailto:martim@ramosdigital.pt"
@@ -452,7 +471,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
-                        Download CV
+                        <span data-i18n="feature_cta">Download CV</span>
                     </a>
                 </div>
             </div>
@@ -463,7 +482,7 @@
             <div class="max-w-6xl mx-auto">
                 <!-- Section Header -->
                 <div class="mb-16 reveal">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold">The Engineer<span
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold" data-i18n="about_title">The Engineer<span
                             class="text-electric-400">.</span></h2>
                 </div>
 
@@ -491,9 +510,10 @@
                                 </svg>
                             </div>
 
-                            <h3 class="font-heading text-2xl font-semibold mb-3">Instituto Superior Técnico</h3>
+                            <h3 class="font-heading text-2xl font-semibold mb-3" data-i18n="about_edu_title">Instituto
+                                Superior Técnico</h3>
 
-                            <p class="text-white/60 mb-auto leading-relaxed">
+                            <p class="text-white/60 mb-auto leading-relaxed" data-i18n="about_edu_desc">
                                 3rd Year Computer Engineering @ IST.
                                 <br>
                                 Focus on <span class="text-white">Algorithms</span>, <span
@@ -502,7 +522,8 @@
                             </p>
 
                             <div class="flex items-center gap-2 text-sm text-white/40 font-mono mt-6">
-                                <span class="text-electric-400">&gt;</span> Top Technical University in Portugal
+                                <span class="text-electric-400">&gt;</span><span data-i18n="about_edu_note">Top
+                                    Technical University in Portugal</span>
                             </div>
                         </div>
                     </div>
@@ -517,11 +538,13 @@
                                         class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                     <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
                                 </span>
-                                <span class="text-emerald-400 font-medium">Available</span>
+                                <span class="text-emerald-400 font-medium" data-i18n="about_status">Available</span>
                             </div>
                             <div>
-                                <p class="text-2xl font-heading font-semibold">Open for Freelance</p>
-                                <p class="text-white/40 text-sm mt-1">New projects & collaborations</p>
+                                <p class="text-2xl font-heading font-semibold" data-i18n="about_freelance">Open for
+                                    Freelance</p>
+                                <p class="text-white/40 text-sm mt-1" data-i18n="about_freelance_desc">New projects &
+                                    collaborations</p>
                             </div>
                         </div>
                     </div>
@@ -612,10 +635,10 @@
             <div class="max-w-4xl mx-auto">
                 <!-- Section Header -->
                 <div class="text-center mb-16 reveal">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6" data-i18n="services_title">
                         Engineered for Performance<span class="text-amber-400">.</span>
                     </h2>
-                    <p class="text-white/50 max-w-2xl mx-auto">
+                    <p class="text-white/50 max-w-2xl mx-auto" data-i18n="services_desc">
                         High-performance websites and web applications built with precision.
                         Every line of code optimized for speed, accessibility, and scalability.
                     </p>
@@ -625,14 +648,15 @@
                 <div class="minimal-input rounded-xl p-1 mb-12">
                     <div class="flex items-center">
                         <!-- Input Field -->
-                        <input type="text" placeholder="Enter your website URL to audit..."
+                        <input type="text" data-i18n-placeholder="services_audit_placeholder"
+                            placeholder="Enter your website URL to audit..."
                             class="flex-1 bg-transparent text-white text-sm placeholder:text-white/30 focus:outline-none px-5 py-4"
                             id="auditInput">
 
                         <!-- Execute Button -->
                         <button id="auditBtn"
                             class="px-6 py-3 mr-1 rounded-lg bg-white text-black text-sm font-medium hover:bg-white/90 transition-colors">
-                            <span>Audit</span>
+                            <span data-i18n="services_audit_btn">Audit</span>
                         </button>
                     </div>
                 </div>
@@ -650,8 +674,10 @@
                                     d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </div>
-                        <h3 class="font-heading text-lg font-semibold mb-2">Performance Optimization</h3>
-                        <p class="text-white/50 text-sm">Sub-second load times. Core Web Vitals optimization. Edge
+                        <h3 class="font-heading text-lg font-semibold mb-2" data-i18n="service1_title">Performance
+                            Optimization</h3>
+                        <p class="text-white/50 text-sm" data-i18n="service1_desc">Sub-second load times. Core Web
+                            Vitals optimization. Edge
                             deployment.</p>
                     </div>
 
@@ -665,8 +691,10 @@
                                     d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                             </svg>
                         </div>
-                        <h3 class="font-heading text-lg font-semibold mb-2">UI/UX Engineering</h3>
-                        <p class="text-white/50 text-sm">Pixel-perfect interfaces. Micro-interactions. Dark mode
+                        <h3 class="font-heading text-lg font-semibold mb-2" data-i18n="service2_title">UI/UX Engineering
+                        </h3>
+                        <p class="text-white/50 text-sm" data-i18n="service2_desc">Pixel-perfect interfaces.
+                            Micro-interactions. Dark mode
                             excellence.</p>
                     </div>
 
@@ -680,8 +708,10 @@
                                     d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                             </svg>
                         </div>
-                        <h3 class="font-heading text-lg font-semibold mb-2">Full-Stack Development</h3>
-                        <p class="text-white/50 text-sm">React/Next.js frontends. API architecture. Database design.</p>
+                        <h3 class="font-heading text-lg font-semibold mb-2" data-i18n="service3_title">Full-Stack
+                            Development</h3>
+                        <p class="text-white/50 text-sm" data-i18n="service3_desc">React/Next.js frontends. API
+                            architecture. Database design.</p>
                     </div>
                 </div>
             </div>
@@ -693,9 +723,10 @@
                 <!-- Section Header -->
                 <div class="mb-12">
                     <div class="flex items-end justify-between">
-                        <h2 class="font-heading text-4xl md:text-5xl font-bold">Projects<span
+                        <h2 class="font-heading text-4xl md:text-5xl font-bold" data-i18n="projects_title">Projects<span
                                 class="text-electric-400">.</span></h2>
-                        <p class="text-white/40 text-sm hidden md:block">← Scroll horizontally →</p>
+                        <p class="text-white/40 text-sm hidden md:block" data-i18n="projects_scroll_hint">← Scroll
+                            horizontally →</p>
                     </div>
                 </div>
 
@@ -858,9 +889,10 @@
                 <div class="flex flex-col md:flex-row items-center justify-between gap-8">
                     <!-- Left: Tagline -->
                     <div class="text-center md:text-left">
-                        <p class="font-heading text-xl font-semibold mb-2">Engineering the web in Lisbon<span
-                                class="text-electric-400">.</span></p>
-                        <p class="text-white/40 text-sm">© 2024 Martim Ramos. All rights reserved.</p>
+                        <p class="font-heading text-xl font-semibold mb-2" data-i18n="footer_tagline">Engineering the
+                            web in Lisbon<span class="text-electric-400">.</span></p>
+                        <p class="text-white/40 text-sm" data-i18n="footer_copyright">© 2024 Martim Ramos. All rights
+                            reserved.</p>
                     </div>
 
                     <!-- Right: Social Links -->
@@ -899,7 +931,7 @@
 
                 <!-- Bottom: Technical Credits -->
                 <div class="mt-12 pt-8 border-t border-white/5 text-center">
-                    <p class="text-white/20 text-xs font-mono">
+                    <p class="text-white/20 text-xs font-mono" data-i18n="footer_built">
                         <span class="text-electric-400/40">&lt;</span>Built with precision<span
                             class="text-electric-400/40">/&gt;</span> · Tailwind CSS · No bloated builders
                     </p>
@@ -1022,6 +1054,141 @@
                 spotlight.style.opacity = '0';
             });
         }
+
+        // ===== INTERNATIONALIZATION (i18n) =====
+        const translations = {
+            // Navigation
+            nav_about: { en: 'About', pt: 'Sobre' },
+            nav_projects: { en: 'Projects', pt: 'Projetos' },
+            nav_solutions: { en: 'Solutions', pt: 'Soluções' },
+            nav_contact: { en: 'Contact', pt: 'Contacto' },
+
+            // Hero
+            hero_status: { en: 'Available for projects', pt: 'Disponível para projetos' },
+            hero_subtitle: { en: 'Computer Engineering @ <span class="text-white">Técnico Lisboa</span>', pt: 'Engenharia Informática @ <span class="text-white">Técnico Lisboa</span>' },
+            hero_desc: { en: 'Crafting high-performance digital experiences with precision engineering.', pt: 'A criar experiências digitais de alto desempenho com engenharia de precisão.' },
+            hero_explore: { en: 'Explore', pt: 'Explorar' },
+            hero_solutions: { en: 'View Solutions', pt: 'Ver Soluções' },
+
+            // About Section
+            about_title: { en: 'The Engineer<span class="text-electric-400">.</span>', pt: 'O Engenheiro<span class="text-electric-400">.</span>' },
+            about_edu_title: { en: 'Instituto Superior Técnico', pt: 'Instituto Superior Técnico' },
+            about_edu_desc: { en: '3rd Year Computer Engineering @ IST.<br>Focus on <span class="text-white">Algorithms</span>, <span class="text-white">Distributed Systems</span>, and <span class="text-white">High-Performance Computing</span>.', pt: '3º Ano de Engenharia Informática @ IST.<br>Foco em <span class="text-white">Algoritmos</span>, <span class="text-white">Sistemas Distribuídos</span> e <span class="text-white">Computação de Alto Desempenho</span>.' },
+            about_edu_note: { en: 'Top Technical University in Portugal', pt: 'Melhor Universidade Técnica de Portugal' },
+            about_status: { en: 'Available', pt: 'Disponível' },
+            about_freelance: { en: 'Open for Freelance', pt: 'Aberto a Freelance' },
+            about_freelance_desc: { en: 'New projects & collaborations', pt: 'Novos projetos & colaborações' },
+
+            // Feature Section
+            feature_title: { en: "It's not about<br>saving time.", pt: 'Não é sobre<br>poupar tempo.' },
+            feature_desc: { en: "It's about feeling like you're never wasting it. Engineered for flow states.", pt: 'É sobre sentir que nunca o estás a desperdiçar. Engenharia para estados de fluxo.' },
+            feature_cta: { en: 'Download CV', pt: 'Descarregar CV' },
+
+            // Services Section
+            services_title: { en: 'Engineered for Performance<span class="text-amber-400">.</span>', pt: 'Engenharia para Performance<span class="text-amber-400">.</span>' },
+            services_desc: { en: 'High-performance websites and web applications built with precision. Every line of code optimized for speed, accessibility, and scalability.', pt: 'Websites e aplicações web de alta performance construídos com precisão. Cada linha de código otimizada para velocidade, acessibilidade e escalabilidade.' },
+            services_audit_placeholder: { en: 'Enter your website URL to audit...', pt: 'Introduza o URL do seu site para auditoria...' },
+            services_audit_btn: { en: 'Audit', pt: 'Auditar' },
+            service1_title: { en: 'Performance Optimization', pt: 'Otimização de Performance' },
+            service1_desc: { en: 'Sub-second load times. Core Web Vitals optimization. Edge deployment.', pt: 'Carregamento em menos de 1 segundo. Otimização Core Web Vitals. Deploy na Edge.' },
+            service2_title: { en: 'UI/UX Engineering', pt: 'Engenharia UI/UX' },
+            service2_desc: { en: 'Pixel-perfect interfaces. Micro-interactions. Dark mode excellence.', pt: 'Interfaces pixel-perfect. Micro-interações. Excelência em modo escuro.' },
+            service3_title: { en: 'Full-Stack Development', pt: 'Desenvolvimento Full-Stack' },
+            service3_desc: { en: 'React/Next.js frontends. API architecture. Database design.', pt: 'Frontends React/Next.js. Arquitetura API. Design de base de dados.' },
+
+            // Projects Section
+            projects_title: { en: 'Projects<span class="text-electric-400">.</span>', pt: 'Projetos<span class="text-electric-400">.</span>' },
+            projects_scroll_hint: { en: '← Scroll horizontally →', pt: '← Deslize horizontalmente →' },
+
+            // Contact Section
+            contact_title: { en: "Let's Build<span class=\"text-electric-400\">.</span>", pt: 'Vamos Construir<span class="text-electric-400">.</span>' },
+            contact_desc: { en: 'Have a project in mind? Let\'s discuss how we can work together.', pt: 'Tem um projeto em mente? Vamos discutir como podemos trabalhar juntos.' },
+            contact_name: { en: 'Name', pt: 'Nome' },
+            contact_email: { en: 'Email', pt: 'Email' },
+            contact_message: { en: 'Message', pt: 'Mensagem' },
+            contact_send: { en: 'Send Message', pt: 'Enviar Mensagem' },
+
+            // Footer
+            footer_tagline: { en: 'Engineering the web in Lisbon<span class="text-electric-400">.</span>', pt: 'A engendrar a web em Lisboa<span class="text-electric-400">.</span>' },
+            footer_copyright: { en: '© 2024 Martim Ramos. All rights reserved.', pt: '© 2024 Martim Ramos. Todos os direitos reservados.' },
+            footer_built: {
+                en: '<span class="text-electric-400/40">&lt;</span>Built with precision<span class="text-electric-400/40">/&gt;</span> · Tailwind CSS · No bloated builders',
+                pt: '<span class="text-electric-400/40">&lt;</span>Construído com precisão<span class="text-electric-400/40">/&gt;</span> · Tailwind CSS · Sem construtores pesados'
+            }
+        };
+
+        // Language switching function
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[key] && translations[key][lang]) {
+                    el.innerHTML = translations[key][lang];
+                }
+            });
+
+            // Handle input placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[key] && translations[key][lang]) {
+                    el.placeholder = translations[key][lang];
+                }
+            });
+
+            // Update toggle UI (segmented control style)
+            const enBtn = document.getElementById('lang-btn-en');
+            const ptBtn = document.getElementById('lang-btn-pt');
+
+            if (enBtn && ptBtn) {
+                if (lang === 'en') {
+                    enBtn.classList.add('bg-white', 'text-black', 'shadow-sm');
+                    enBtn.classList.remove('text-gray-400', 'hover:text-white');
+                    ptBtn.classList.remove('bg-white', 'text-black', 'shadow-sm');
+                    ptBtn.classList.add('text-gray-400', 'hover:text-white');
+                } else {
+                    ptBtn.classList.add('bg-white', 'text-black', 'shadow-sm');
+                    ptBtn.classList.remove('text-gray-400', 'hover:text-white');
+                    enBtn.classList.remove('bg-white', 'text-black', 'shadow-sm');
+                    enBtn.classList.add('text-gray-400', 'hover:text-white');
+                }
+            }
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+
+            // Save preference
+            localStorage.setItem('language', lang);
+        }
+
+        // Language button handlers
+        const langBtnEn = document.getElementById('lang-btn-en');
+        const langBtnPt = document.getElementById('lang-btn-pt');
+
+        if (langBtnEn) {
+            langBtnEn.addEventListener('click', function () {
+                changeLanguage('en');
+            });
+        }
+        if (langBtnPt) {
+            langBtnPt.addEventListener('click', function () {
+                changeLanguage('pt');
+            });
+        }
+
+        // Initialize language on page load
+        (function initLanguage() {
+            const savedLang = localStorage.getItem('language');
+            if (savedLang) {
+                changeLanguage(savedLang);
+            } else {
+                // Check browser language
+                const browserLang = navigator.language.toLowerCase();
+                if (browserLang.startsWith('pt')) {
+                    changeLanguage('pt');
+                } else {
+                    changeLanguage('en');
+                }
+            }
+        })();
     </script>
 
 </body>

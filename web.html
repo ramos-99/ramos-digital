@@ -158,21 +158,38 @@
                 <div class="w-2 h-2 rounded-full bg-white"></div>
                 <span class="text-white">martim</span>
             </a>
-            <div class="flex items-center gap-8">
+            <div class="flex items-center gap-6">
                 <div class="hidden md:flex items-center gap-6">
-                    <a href="index.html"
-                        class="text-sm text-white/50 hover:text-white transition-colors font-medium">Home</a>
-                    <span class="text-sm text-white font-medium border-b border-electric-400">Web Dev</span>
+                    <a href="index.html" class="text-sm text-white/50 hover:text-white transition-colors font-medium"
+                        data-i18n="nav_home">Home</a>
+                    <span class="text-sm text-white font-medium border-b border-electric-400" data-i18n="nav_webdev">Web
+                        Dev</span>
                     <a href="index.html#projects"
-                        class="text-sm text-white/50 hover:text-white transition-colors font-medium">Projects</a>
+                        class="text-sm text-white/50 hover:text-white transition-colors font-medium"
+                        data-i18n="nav_projects">Projects</a>
                 </div>
                 <a href="#contact"
-                    class="text-sm px-5 py-2 rounded-full bg-white text-black font-semibold hover:scale-105 hover:bg-gray-100 transition-all shadow-lg shadow-white/10">
+                    class="text-sm px-5 py-2 rounded-full bg-white text-black font-semibold hover:scale-105 hover:bg-gray-100 transition-all shadow-lg shadow-white/10"
+                    data-i18n="nav_quote">
                     Get a Quote
                 </a>
             </div>
         </div>
     </nav>
+
+    <!-- Language Switcher (Fixed Top-Right) -->
+    <div id="lang-switcher" class="fixed top-6 right-6 z-50 opacity-0 animate-fade-down" style="animation-delay: 0.1s;">
+        <div class="flex items-center bg-white/5 backdrop-blur-md border border-white/10 rounded-full p-1">
+            <button id="lang-btn-pt"
+                class="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 text-gray-400 hover:text-white">
+                PT
+            </button>
+            <button id="lang-btn-en"
+                class="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 bg-white text-black shadow-sm">
+                EN
+            </button>
+        </div>
+    </div>
 
     <main class="relative">
 
@@ -182,15 +199,17 @@
             </div>
 
             <div class="max-w-4xl mx-auto text-center relative z-10">
-                <h1 class="font-heading text-5xl md:text-7xl font-bold tracking-tight mb-6 reveal">
+                <h1 class="font-heading text-5xl md:text-7xl font-bold tracking-tight mb-6 reveal"
+                    data-i18n="hero_title">
                     Turn your website into<br>your <span class="text-electric-400">best employee</span>.
                 </h1>
-                <p class="text-xl text-white/50 max-w-2xl mx-auto mb-10 reveal">
+                <p class="text-xl text-white/50 max-w-2xl mx-auto mb-10 reveal" data-i18n="hero_subtitle">
                     Stop losing customers to slow, ugly sites. We engineer high-performance web solutions that convert
                     visitors into revenue.
                 </p>
                 <a href="#contact"
-                    class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition-all reveal">
+                    class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition-all reveal"
+                    data-i18n="hero_cta">
                     Get a Free Audit
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -201,7 +220,8 @@
 
         <!-- Integrations Marquee Section -->
         <section class="py-24 bg-[#0A0A0B] overflow-hidden relative">
-            <p class="text-center text-sm font-mono text-white/60 mb-12 uppercase tracking-widest relative z-20">
+            <p class="text-center text-sm font-mono text-white/60 mb-12 uppercase tracking-widest relative z-20"
+                data-i18n="marquee_subtitle">
                 Powering your business with modern integrations
             </p>
 
@@ -347,47 +367,56 @@
         <section class="py-32 px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-16 reveal">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold">Why choose us<span
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold" data-i18n="compare_title">Why choose us<span
                             class="text-amber-400">?</span></h2>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6 reveal">
                     <div class="p-8 rounded-2xl glass-card border border-red-500/20">
-                        <h3 class="text-xl font-semibold mb-6 text-red-400">Typical Agencies</h3>
+                        <h3 class="text-xl font-semibold mb-6 text-red-400" data-i18n="compare_agencies">Typical
+                            Agencies</h3>
                         <ul class="space-y-4">
                             <li class="flex items-center gap-3 text-white/60">
-                                <span class="text-red-500">✕</span> WordPress templates
+                                <span class="text-red-500">✕</span><span data-i18n="compare_bad1">WordPress
+                                    templates</span>
                             </li>
                             <li class="flex items-center gap-3 text-white/60">
-                                <span class="text-red-500">✕</span> 3-5 second load times
+                                <span class="text-red-500">✕</span><span data-i18n="compare_bad2">3-5 second load
+                                    times</span>
                             </li>
                             <li class="flex items-center gap-3 text-white/60">
-                                <span class="text-red-500">✕</span> Monthly hosting fees forever
+                                <span class="text-red-500">✕</span><span data-i18n="compare_bad3">Monthly hosting fees
+                                    forever</span>
                             </li>
                             <li class="flex items-center gap-3 text-white/60">
-                                <span class="text-red-500">✕</span> Generic cookie-cutter design
+                                <span class="text-red-500">✕</span><span data-i18n="compare_bad4">Generic cookie-cutter
+                                    design</span>
                             </li>
                         </ul>
                     </div>
 
                     <div
                         class="p-8 rounded-2xl glass-card border border-emerald-500/30 relative overflow-hidden shadow-[0_0_30px_rgba(16,185,129,0.15)]">
-                        <div
-                            class="absolute top-4 right-4 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-medium">
+                        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-medium"
+                            data-i18n="compare_recommended">
                             Recommended</div>
                         <h3 class="text-xl font-semibold mb-6 text-emerald-400">Ramos Digital</h3>
                         <ul class="space-y-4">
                             <li class="flex items-center gap-3 text-white">
-                                <span class="text-emerald-400">✓</span> Next.js / React (Modern Stack)
+                                <span class="text-emerald-400">✓</span><span data-i18n="compare_good1">Next.js / React
+                                    (Modern Stack)</span>
                             </li>
                             <li class="flex items-center gap-3 text-white">
-                                <span class="text-emerald-400">✓</span> Sub-second load times
+                                <span class="text-emerald-400">✓</span><span data-i18n="compare_good2">Sub-second load
+                                    times</span>
                             </li>
                             <li class="flex items-center gap-3 text-white">
-                                <span class="text-emerald-400">✓</span> One-time payment, you own it
+                                <span class="text-emerald-400">✓</span><span data-i18n="compare_good3">One-time payment,
+                                    you own it</span>
                             </li>
                             <li class="flex items-center gap-3 text-white">
-                                <span class="text-emerald-400">✓</span> Custom, hand-crafted design
+                                <span class="text-emerald-400">✓</span><span data-i18n="compare_good4">Custom,
+                                    hand-crafted design</span>
                             </li>
                         </ul>
                     </div>
@@ -398,8 +427,8 @@
         <section class="py-32 px-6 relative">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-16 reveal">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold">Simple. Fast. Done<span
-                            class="text-electric-400">.</span></h2>
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold" data-i18n="process_title">Simple. Fast.
+                        Done<span class="text-electric-400">.</span></h2>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8 reveal">
@@ -408,8 +437,10 @@
                             class="w-16 h-16 rounded-2xl bg-electric-500/10 border border-electric-500/20 flex items-center justify-center mx-auto mb-6">
                             <span class="text-2xl font-bold text-electric-400">1</span>
                         </div>
-                        <h3 class="font-heading text-xl font-semibold mb-2">Discovery</h3>
-                        <p class="text-white/50 text-sm">We understand your business, goals, and target audience.
+                        <h3 class="font-heading text-xl font-semibold mb-2" data-i18n="process_step1_title">Discovery
+                        </h3>
+                        <p class="text-white/50 text-sm" data-i18n="process_step1_desc">We understand your business,
+                            goals, and target audience.
                         </p>
                     </div>
                     <div class="text-center p-6">
@@ -417,16 +448,19 @@
                             class="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mx-auto mb-6">
                             <span class="text-2xl font-bold text-amber-400">2</span>
                         </div>
-                        <h3 class="font-heading text-xl font-semibold mb-2">Build & Refine</h3>
-                        <p class="text-white/50 text-sm">We design and develop with your feedback at every step.</p>
+                        <h3 class="font-heading text-xl font-semibold mb-2" data-i18n="process_step2_title">Build &
+                            Refine</h3>
+                        <p class="text-white/50 text-sm" data-i18n="process_step2_desc">We design and develop with your
+                            feedback at every step.</p>
                     </div>
                     <div class="text-center p-6">
                         <div
                             class="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-6">
                             <span class="text-2xl font-bold text-emerald-400">3</span>
                         </div>
-                        <h3 class="font-heading text-xl font-semibold mb-2">Launch</h3>
-                        <p class="text-white/50 text-sm">Your site goes live, optimized and ready to convert.</p>
+                        <h3 class="font-heading text-xl font-semibold mb-2" data-i18n="process_step3_title">Launch</h3>
+                        <p class="text-white/50 text-sm" data-i18n="process_step3_desc">Your site goes live, optimized
+                            and ready to convert.</p>
                     </div>
                 </div>
             </div>
@@ -435,12 +469,13 @@
         <section class="py-32 px-6">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-12 reveal">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold">Flexible pricing for<br>ambitious
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold" data-i18n="pricing_title">Flexible pricing
+                        for<br>ambitious
                         projects<span class="text-amber-400">.</span></h2>
                 </div>
 
                 <div class="p-10 rounded-2xl glass-card border border-white/10 text-center reveal">
-                    <p class="text-lg text-white/70 mb-8 max-w-xl mx-auto leading-relaxed">
+                    <p class="text-lg text-white/70 mb-8 max-w-xl mx-auto leading-relaxed" data-i18n="pricing_desc">
                         Every business is unique, and so is every budget. I am currently accepting select projects
                         to
                         build my portfolio, offering <span class="text-white font-medium">premium engineering at
@@ -449,18 +484,19 @@
 
                     <div class="flex flex-wrap justify-center gap-6 mb-10">
                         <div class="flex items-center gap-2 text-emerald-400">
-                            <span>✓</span><span class="text-white/80">No Monthly Fees</span>
+                            <span>✓</span><span class="text-white/80" data-i18n="pricing_perk1">No Monthly Fees</span>
                         </div>
                         <div class="flex items-center gap-2 text-emerald-400">
-                            <span>✓</span><span class="text-white/80">Full Ownership</span>
+                            <span>✓</span><span class="text-white/80" data-i18n="pricing_perk2">Full Ownership</span>
                         </div>
                         <div class="flex items-center gap-2 text-emerald-400">
-                            <span>✓</span><span class="text-white/80">Custom Design</span>
+                            <span>✓</span><span class="text-white/80" data-i18n="pricing_perk3">Custom Design</span>
                         </div>
                     </div>
 
                     <a href="#contact"
-                        class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition-all">
+                        class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition-all"
+                        data-i18n="pricing_cta">
                         Get a Free Quote
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -474,7 +510,7 @@
         <section class="py-32 px-6">
             <div class="max-w-2xl mx-auto">
                 <div class="text-center mb-16 reveal">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold">Questions<span
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold" data-i18n="faq_title">Questions<span
                             class="text-electric-400">?</span></h2>
                 </div>
 
@@ -484,7 +520,7 @@
                         class="accordion-item bg-white/5 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-electric-400/30">
                         <button
                             class="accordion-trigger w-full flex items-center justify-between p-5 text-left cursor-pointer group">
-                            <span class="font-medium text-white">Do I pay monthly fees?</span>
+                            <span class="font-medium text-white" data-i18n="faq_q1">Do I pay monthly fees?</span>
                             <span
                                 class="accordion-icon w-6 h-6 flex items-center justify-center text-white/50 group-hover:text-white transition-all duration-300">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
@@ -494,7 +530,8 @@
                             </span>
                         </button>
                         <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
-                            <p class="px-5 pb-5 text-gray-400 text-sm leading-relaxed">No. You pay once, and you own
+                            <p class="px-5 pb-5 text-gray-400 text-sm leading-relaxed" data-i18n="faq_a1">No. You pay
+                                once, and you own
                                 your website forever. Hosting is typically €10-20/month on platforms like Vercel or
                                 Netlify, which you control.</p>
                         </div>
@@ -505,7 +542,7 @@
                         class="accordion-item bg-white/5 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-electric-400/30">
                         <button
                             class="accordion-trigger w-full flex items-center justify-between p-5 text-left cursor-pointer group">
-                            <span class="font-medium text-white">How long does it take?</span>
+                            <span class="font-medium text-white" data-i18n="faq_q2">How long does it take?</span>
                             <span
                                 class="accordion-icon w-6 h-6 flex items-center justify-center text-white/50 group-hover:text-white transition-all duration-300">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
@@ -515,7 +552,8 @@
                             </span>
                         </button>
                         <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
-                            <p class="px-5 pb-5 text-gray-400 text-sm leading-relaxed">Landing pages: 1-2 weeks.
+                            <p class="px-5 pb-5 text-gray-400 text-sm leading-relaxed" data-i18n="faq_a2">Landing pages:
+                                1-2 weeks.
                                 Corporate sites: 3-4 weeks. E-commerce: 4-8 weeks. Timelines depend on your feedback
                                 speed.</p>
                         </div>
@@ -526,7 +564,7 @@
                         class="accordion-item bg-white/5 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-electric-400/30">
                         <button
                             class="accordion-trigger w-full flex items-center justify-between p-5 text-left cursor-pointer group">
-                            <span class="font-medium text-white">Can I edit text myself?</span>
+                            <span class="font-medium text-white" data-i18n="faq_q3">Can I edit text myself?</span>
                             <span
                                 class="accordion-icon w-6 h-6 flex items-center justify-center text-white/50 group-hover:text-white transition-all duration-300">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
@@ -536,7 +574,8 @@
                             </span>
                         </button>
                         <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
-                            <p class="px-5 pb-5 text-gray-400 text-sm leading-relaxed">Yes! We can integrate a simple
+                            <p class="px-5 pb-5 text-gray-400 text-sm leading-relaxed" data-i18n="faq_a3">Yes! We can
+                                integrate a simple
                                 CMS (like Sanity or Contentful) so you can update content without touching code.</p>
                         </div>
                     </div>
@@ -546,9 +585,10 @@
 
         <section id="contact" class="py-32 px-6">
             <div class="max-w-2xl mx-auto text-center reveal">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6">Ready to start<span
-                        class="text-emerald-400">?</span></h2>
-                <p class="text-white/50 mb-8">Send me your project details and I'll get back to you within 24 hours.
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6" data-i18n="contact_title">Ready to
+                    start<span class="text-emerald-400">?</span></h2>
+                <p class="text-white/50 mb-8" data-i18n="contact_desc">Send me your project details and I'll get back to
+                    you within 24 hours.
                 </p>
                 <a href="mailto:martim@ramosdigital.pt"
                     class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition-all">
@@ -565,9 +605,10 @@
             <div class="max-w-6xl mx-auto">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-8">
                     <div class="text-center md:text-left">
-                        <p class="font-heading text-xl font-semibold mb-2">Engineering the web in Lisbon<span
-                                class="text-electric-400">.</span></p>
-                        <p class="text-white/40 text-sm">© 2024 Martim Ramos. All rights reserved.</p>
+                        <p class="font-heading text-xl font-semibold mb-2" data-i18n="footer_tagline">Engineering the
+                            web in Lisbon<span class="text-electric-400">.</span></p>
+                        <p class="text-white/40 text-sm" data-i18n="footer_copyright">© 2024 Martim Ramos. All rights
+                            reserved.</p>
                     </div>
                     <div class="flex items-center gap-4">
                         <a href="https://github.com/martimramos" target="_blank"
@@ -587,7 +628,7 @@
                     </div>
                 </div>
                 <div class="mt-12 pt-8 border-t border-white/5 text-center">
-                    <p class="text-white/20 text-xs font-mono">
+                    <p class="text-white/20 text-xs font-mono" data-i18n="footer_built">
                         <span class="text-electric-400/40">&lt;</span>Built with precision<span
                             class="text-electric-400/40">/&gt;</span> · Tailwind CSS · No bloated builders
                     </p>
@@ -648,6 +689,151 @@
                 }
             });
         });
+
+        // ===== INTERNATIONALIZATION (i18n) =====
+        const translations = {
+            // Navigation
+            nav_home: { en: 'Home', pt: 'Início' },
+            nav_webdev: { en: 'Web Dev', pt: 'Web Dev' },
+            nav_projects: { en: 'Projects', pt: 'Projetos' },
+            nav_quote: { en: 'Get a Quote', pt: 'Pedir Orçamento' },
+
+            // Hero Section
+            hero_title: {
+                en: 'Turn your website into<br>your <span class="text-electric-400">best employee</span>.',
+                pt: 'Transforme o seu site no<br>seu <span class="text-electric-400">melhor funcionário</span>.'
+            },
+            hero_subtitle: {
+                en: 'Stop losing customers to slow, ugly sites. We engineer high-performance web solutions that convert visitors into revenue.',
+                pt: 'Pare de perder clientes para sites lentos e desatualizados. Criamos soluções web de alto desempenho que convertem visitantes em receita.'
+            },
+            hero_cta: { en: 'Get a Free Audit', pt: 'Auditoria Gratuita' },
+
+            // Marquee
+            marquee_subtitle: {
+                en: 'Powering your business with modern integrations',
+                pt: 'Potenciando o seu negócio com integrações modernas'
+            },
+
+            // Comparison Section
+            compare_title: { en: 'Why choose us<span class="text-amber-400">?</span>', pt: 'Porquê escolher-nos<span class="text-amber-400">?</span>' },
+            compare_agencies: { en: 'Typical Agencies', pt: 'Agências Tradicionais' },
+            compare_bad1: { en: 'WordPress templates', pt: 'Templates WordPress' },
+            compare_bad2: { en: '3-5 second load times', pt: '3-5 segundos de carregamento' },
+            compare_bad3: { en: 'Monthly hosting fees forever', pt: 'Taxas mensais de hosting para sempre' },
+            compare_bad4: { en: 'Generic cookie-cutter design', pt: 'Design genérico e repetitivo' },
+            compare_recommended: { en: 'Recommended', pt: 'Recomendado' },
+            compare_good1: { en: 'Next.js / React (Modern Stack)', pt: 'Next.js / React (Stack Moderno)' },
+            compare_good2: { en: 'Sub-second load times', pt: 'Carregamento em menos de 1 segundo' },
+            compare_good3: { en: 'One-time payment, you own it', pt: 'Pagamento único, é seu para sempre' },
+            compare_good4: { en: 'Custom, hand-crafted design', pt: 'Design personalizado e artesanal' },
+
+            // Process Section
+            process_title: { en: 'Simple. Fast. Done<span class="text-electric-400">.</span>', pt: 'Simples. Rápido. Feito<span class="text-electric-400">.</span>' },
+            process_step1_title: { en: 'Discovery', pt: 'Descoberta' },
+            process_step1_desc: { en: 'We understand your business, goals, and target audience.', pt: 'Compreendemos o seu negócio, objetivos e público-alvo.' },
+            process_step2_title: { en: 'Build & Refine', pt: 'Construir & Refinar' },
+            process_step2_desc: { en: 'We design and develop with your feedback at every step.', pt: 'Desenhamos e desenvolvemos com o seu feedback em cada etapa.' },
+            process_step3_title: { en: 'Launch', pt: 'Lançamento' },
+            process_step3_desc: { en: 'Your site goes live, optimized and ready to convert.', pt: 'O seu site entra no ar, otimizado e pronto para converter.' },
+
+            // Pricing Section
+            pricing_title: { en: 'Flexible pricing for<br>ambitious projects<span class="text-amber-400">.</span>', pt: 'Preços flexíveis para<br>projetos ambiciosos<span class="text-amber-400">.</span>' },
+            pricing_desc: {
+                en: 'Every business is unique, and so is every budget. I am currently accepting select projects to build my portfolio, offering <span class="text-white font-medium">premium engineering at competitive rates</span>.',
+                pt: 'Cada negócio é único, assim como cada orçamento. Estou atualmente a aceitar projetos selecionados para construir o meu portfólio, oferecendo <span class="text-white font-medium">engenharia premium a preços competitivos</span>.'
+            },
+            pricing_perk1: { en: 'No Monthly Fees', pt: 'Sem Mensalidades' },
+            pricing_perk2: { en: 'Full Ownership', pt: 'Propriedade Total' },
+            pricing_perk3: { en: 'Custom Design', pt: 'Design Personalizado' },
+            pricing_cta: { en: 'Get a Free Quote', pt: 'Pedir Orçamento Grátis' },
+
+            // FAQ Section
+            faq_title: { en: 'Questions<span class="text-electric-400">?</span>', pt: 'Dúvidas<span class="text-electric-400">?</span>' },
+            faq_q1: { en: 'Do I pay monthly fees?', pt: 'Pago mensalidades?' },
+            faq_a1: {
+                en: 'No. You pay once, and you own your website forever. Hosting is typically €10-20/month on platforms like Vercel or Netlify, which you control.',
+                pt: 'Não. Paga uma vez e o site é seu para sempre. O hosting custa tipicamente €10-20/mês em plataformas como Vercel ou Netlify, que você controla.'
+            },
+            faq_q2: { en: 'How long does it take?', pt: 'Quanto tempo demora?' },
+            faq_a2: {
+                en: 'Landing pages: 1-2 weeks. Corporate sites: 3-4 weeks. E-commerce: 4-8 weeks. Timelines depend on your feedback speed.',
+                pt: 'Landing pages: 1-2 semanas. Sites corporativos: 3-4 semanas. E-commerce: 4-8 semanas. Os prazos dependem da rapidez do seu feedback.'
+            },
+            faq_q3: { en: 'Can I edit text myself?', pt: 'Posso editar o conteúdo sozinho?' },
+            faq_a3: {
+                en: 'Yes! We can integrate a simple CMS (like Sanity or Contentful) so you can update content without touching code.',
+                pt: 'Sim! Podemos integrar um CMS simples (como Sanity ou Contentful) para que possa atualizar o conteúdo sem tocar em código.'
+            },
+
+            // Contact Section
+            contact_title: { en: 'Ready to start<span class="text-emerald-400">?</span>', pt: 'Pronto para começar<span class="text-emerald-400">?</span>' },
+            contact_desc: { en: "Send me your project details and I'll get back to you within 24 hours.", pt: 'Envie-me os detalhes do seu projeto e respondo em menos de 24 horas.' },
+
+            // Footer
+            footer_tagline: { en: 'Engineering the web in Lisbon<span class="text-electric-400">.</span>', pt: 'A engendrar a web em Lisboa<span class="text-electric-400">.</span>' },
+            footer_copyright: { en: '© 2024 Martim Ramos. All rights reserved.', pt: '© 2024 Martim Ramos. Todos os direitos reservados.' },
+            footer_built: {
+                en: '<span class="text-electric-400/40">&lt;</span>Built with precision<span class="text-electric-400/40">/&gt;</span> · Tailwind CSS · No bloated builders',
+                pt: '<span class="text-electric-400/40">&lt;</span>Construído com precisão<span class="text-electric-400/40">/&gt;</span> · Tailwind CSS · Sem construtores pesados'
+            }
+        };
+
+        // Language switching function
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[key] && translations[key][lang]) {
+                    el.innerHTML = translations[key][lang];
+                }
+            });
+
+            // Update toggle UI (segmented control style)
+            const enBtn = document.getElementById('lang-btn-en');
+            const ptBtn = document.getElementById('lang-btn-pt');
+
+            if (lang === 'en') {
+                enBtn.classList.add('bg-white', 'text-black', 'shadow-sm');
+                enBtn.classList.remove('text-gray-400', 'hover:text-white');
+                ptBtn.classList.remove('bg-white', 'text-black', 'shadow-sm');
+                ptBtn.classList.add('text-gray-400', 'hover:text-white');
+            } else {
+                ptBtn.classList.add('bg-white', 'text-black', 'shadow-sm');
+                ptBtn.classList.remove('text-gray-400', 'hover:text-white');
+                enBtn.classList.remove('bg-white', 'text-black', 'shadow-sm');
+                enBtn.classList.add('text-gray-400', 'hover:text-white');
+            }
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+
+            // Save preference
+            localStorage.setItem('language', lang);
+        }
+
+        // Language button handlers
+        document.getElementById('lang-btn-en').addEventListener('click', function () {
+            changeLanguage('en');
+        });
+        document.getElementById('lang-btn-pt').addEventListener('click', function () {
+            changeLanguage('pt');
+        });
+
+        // Initialize language on page load
+        (function initLanguage() {
+            const savedLang = localStorage.getItem('language');
+            if (savedLang) {
+                changeLanguage(savedLang);
+            } else {
+                // Check browser language
+                const browserLang = navigator.language.toLowerCase();
+                if (browserLang.startsWith('pt')) {
+                    changeLanguage('pt');
+                } else {
+                    changeLanguage('en');
+                }
+            }
+        })();
     </script>
 
 </body>
