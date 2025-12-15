@@ -154,9 +154,10 @@
 
 <body class="bg-[#0A0A0B] text-white font-sans antialiased overflow-x-hidden">
 
-    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-3xl px-2 opacity-0 animate-fade-down">
+    <nav
+        class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-3xl px-4 md:px-2 opacity-0 animate-fade-down">
         <div
-            class="bg-[#0A0A0B]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl shadow-black/50 px-6 py-3 flex items-center justify-between">
+            class="bg-[#0A0A0B]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl shadow-black/50 px-4 md:px-6 py-2.5 md:py-3 flex items-center justify-between">
             <a href="index.html" class="font-heading font-semibold text-lg tracking-tight flex items-center gap-2">
                 <div class="w-2 h-2 rounded-full bg-white"></div>
                 <span class="text-white">martim</span>
@@ -178,7 +179,8 @@
     </nav>
 
     <!-- Language Switcher (Fixed Top-Right) -->
-    <div id="lang-switcher" class="fixed top-6 right-6 z-50 opacity-0 animate-fade-down" style="animation-delay: 0.1s;">
+    <div id="lang-switcher" class="fixed top-4 right-4 md:top-6 md:right-6 z-50 opacity-0 animate-fade-down"
+        style="animation-delay: 0.1s;">
         <div class="flex items-center bg-white/5 backdrop-blur-md border border-white/10 rounded-full p-1">
             <button id="lang-btn-pt"
                 class="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 text-gray-400 hover:text-white">
@@ -193,17 +195,18 @@
 
     <main class="relative">
 
-        <section class="min-h-screen flex items-center justify-center relative px-6 pt-24">
+        <section class="min-h-screen flex items-center justify-center relative px-4 md:px-6 pt-20 md:pt-24">
             <div
                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-electric-500/10 rounded-full blur-3xl pointer-events-none">
             </div>
 
             <div class="max-w-4xl mx-auto text-center relative z-10">
-                <h1 class="font-heading text-5xl md:text-7xl font-bold tracking-tight mb-6 reveal"
+                <h1 class="font-heading text-3xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-4 md:mb-6 reveal"
                     data-i18n="hero_title">
                     Turn your website into<br>your <span class="text-electric-400">best employee</span>.
                 </h1>
-                <p class="text-xl text-white/50 max-w-2xl mx-auto mb-10 reveal" data-i18n="hero_subtitle">
+                <p class="text-base md:text-xl text-white/50 max-w-2xl mx-auto mb-8 md:mb-10 px-2 reveal"
+                    data-i18n="hero_subtitle">
                     Stop losing customers to slow, ugly sites. We engineer high-performance web solutions that convert
                     visitors into revenue.
                 </p>
@@ -364,15 +367,15 @@
         </section>
 
 
-        <section class="py-32 px-6">
+        <section class="py-8 md:py-32 px-4 md:px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-16 reveal">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold" data-i18n="compare_title">Why choose us<span
-                            class="text-amber-400">?</span></h2>
+                    <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold" data-i18n="compare_title">Why
+                        choose us<span class="text-amber-400">?</span></h2>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-6 reveal">
-                    <div class="p-8 rounded-2xl glass-card border border-red-500/20">
+                <div class="grid md:grid-cols-2 gap-4 md:gap-6 reveal">
+                    <div class="p-6 md:p-8 rounded-2xl glass-card border border-red-500/20">
                         <h3 class="text-xl font-semibold mb-6 text-red-400" data-i18n="compare_agencies">Typical
                             Agencies</h3>
                         <ul class="space-y-4">
@@ -396,7 +399,7 @@
                     </div>
 
                     <div
-                        class="p-8 rounded-2xl glass-card border border-emerald-500/30 relative overflow-hidden shadow-[0_0_30px_rgba(16,185,129,0.15)]">
+                        class="p-6 md:p-8 rounded-2xl glass-card border border-emerald-500/30 relative overflow-hidden shadow-[0_0_30px_rgba(16,185,129,0.15)]">
                         <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-medium"
                             data-i18n="compare_recommended">
                             Recommended</div>
@@ -424,14 +427,15 @@
             </div>
         </section>
 
-        <section class="py-32 px-6 relative">
+        <section class="py-8 md:py-32 px-4 md:px-6 relative">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-16 reveal">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold" data-i18n="process_title">Simple. Fast.
+                    <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold" data-i18n="process_title">
+                        Simple. Fast.
                         Done<span class="text-electric-400">.</span></h2>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-8 reveal">
+                <div class="grid md:grid-cols-3 gap-6 md:gap-8 reveal">
                     <div class="text-center p-6">
                         <div
                             class="w-16 h-16 rounded-2xl bg-electric-500/10 border border-electric-500/20 flex items-center justify-center mx-auto mb-6">
@@ -466,15 +470,16 @@
             </div>
         </section>
 
-        <section class="py-32 px-6">
+        <section class="py-8 md:py-32 px-4 md:px-6">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-12 reveal">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold" data-i18n="pricing_title">Flexible pricing
+                    <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold" data-i18n="pricing_title">
+                        Flexible pricing
                         for<br>ambitious
                         projects<span class="text-amber-400">.</span></h2>
                 </div>
 
-                <div class="p-10 rounded-2xl glass-card border border-white/10 text-center reveal">
+                <div class="p-6 md:p-10 rounded-2xl glass-card border border-white/10 text-center reveal">
                     <p class="text-lg text-white/70 mb-8 max-w-xl mx-auto leading-relaxed" data-i18n="pricing_desc">
                         Every business is unique, and so is every budget. I am currently accepting select projects
                         to
@@ -507,11 +512,11 @@
             </div>
         </section>
 
-        <section class="py-32 px-6">
+        <section class="py-8 md:py-32 px-4 md:px-6">
             <div class="max-w-2xl mx-auto">
                 <div class="text-center mb-16 reveal">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold" data-i18n="faq_title">Questions<span
-                            class="text-electric-400">?</span></h2>
+                    <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold" data-i18n="faq_title">
+                        Questions<span class="text-electric-400">?</span></h2>
                 </div>
 
                 <div class="space-y-4 reveal" id="faq-accordion">
@@ -583,9 +588,10 @@
             </div>
         </section>
 
-        <section id="contact" class="py-32 px-6">
+        <section id="contact" class="py-8 md:py-32 px-4 md:px-6">
             <div class="max-w-2xl mx-auto text-center reveal">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6" data-i18n="contact_title">Ready to
+                <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6"
+                    data-i18n="contact_title">Ready to
                     start<span class="text-emerald-400">?</span></h2>
                 <p class="text-white/50 mb-8" data-i18n="contact_desc">Send me your project details and I'll get back to
                     you within 24 hours.
@@ -601,7 +607,7 @@
             </div>
         </section>
 
-        <footer class="py-16 px-6 border-t border-white/5">
+        <footer class="py-8 md:py-16 px-4 md:px-6 border-t border-white/5">
             <div class="max-w-6xl mx-auto">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-8">
                     <div class="text-center md:text-left">
