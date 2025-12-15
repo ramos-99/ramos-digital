@@ -246,7 +246,6 @@
 
             <!-- Desktop Navigation (hidden on mobile) -->
             <div class="hidden md:flex items-center gap-6">
-                <!-- Main Service Link -->
                 <a href="web.html"
                     class="flex items-center gap-1.5 text-sm text-white font-medium hover:text-electric-400 transition-colors group">
                     <span data-i18n="nav_development">Web Development</span>
@@ -256,8 +255,6 @@
                             d="M7 17L17 7M17 7H7M17 7V17" />
                     </svg>
                 </a>
-
-                <!-- Primary Action (Desktop) -->
                 <button id="contactBtn"
                     class="text-sm px-5 py-2 rounded-full bg-white text-black font-semibold hover:scale-105 hover:bg-gray-100 transition-all shadow-lg shadow-white/10"
                     data-i18n="nav_contact">
@@ -269,50 +266,69 @@
             <button id="mobileMenuToggle"
                 class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/10 relative z-50"
                 aria-label="Toggle menu">
-                <svg id="menuIconOpen" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg id="menuIconOpen" class="w-5 h-5 text-white transition-all duration-300" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
-                <svg id="menuIconClose" class="w-5 h-5 text-white hidden" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
+                <svg id="menuIconClose" class="w-5 h-5 text-white hidden transition-all duration-300" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay (Hidden by default) -->
+    <!-- Mobile Menu Backdrop (Click to close) -->
+    <div id="mobileMenuBackdrop"
+        class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+    </div>
+
+    <!-- Mobile Side-Panel Menu (Slides from Right) -->
     <div id="mobileMenu"
-        class="fixed inset-0 z-40 bg-[#0A0A0B]/98 backdrop-blur-xl hidden flex-col items-center justify-center gap-10 pt-20">
+        class="fixed top-0 right-0 h-full w-3/4 max-w-xs z-50 bg-[#0A0A0B]/95 backdrop-blur-xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out md:hidden">
 
-        <!-- Navigation Links -->
-        <a href="web.html"
-            class="text-3xl font-heading font-semibold text-white hover:text-electric-400 transition-colors flex items-center gap-3">
-            <span data-i18n="nav_development">Web Development</span>
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
-        </a>
+        <!-- Panel Content -->
+        <div class="flex flex-col h-full pt-24 pb-10 px-8">
 
-        <button id="contactBtnMobile"
-            class="text-xl px-10 py-4 rounded-full bg-white text-black font-semibold hover:bg-gray-100 transition-all shadow-lg"
-            data-i18n="nav_contact">
-            Contact
-        </button>
+            <!-- Navigation Links -->
+            <nav class="flex flex-col gap-6">
+                <a href="web.html"
+                    class="text-xl font-heading font-semibold text-white hover:text-electric-400 transition-colors flex items-center gap-2">
+                    <span data-i18n="nav_development">Web Development</span>
+                    <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                </a>
 
-        <!-- Language Switcher (Inside Mobile Menu) -->
-        <div class="mt-8 flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-1.5">
-            <button id="lang-btn-pt-mobile"
-                class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-400 hover:text-white">
-                PT
-            </button>
-            <button id="lang-btn-en-mobile"
-                class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-white text-black shadow-sm">
-                EN
-            </button>
+                <button id="contactBtnMobile"
+                    class="text-left text-xl font-heading font-semibold text-white hover:text-electric-400 transition-colors"
+                    data-i18n="nav_contact">
+                    Contact
+                </button>
+            </nav>
+
+            <!-- Spacer -->
+            <div class="flex-1"></div>
+
+            <!-- Language Switcher (Bottom of Panel) -->
+            <div class="pt-8 border-t border-white/10">
+                <p class="text-xs text-white/40 uppercase tracking-wider mb-3">Language</p>
+                <div class="flex items-center bg-white/10 rounded-full p-1">
+                    <button id="lang-btn-pt-mobile"
+                        class="flex-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-400 hover:text-white">
+                        PT
+                    </button>
+                    <button id="lang-btn-en-mobile"
+                        class="flex-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-white text-black shadow-sm">
+                        EN
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Language Switcher (Desktop Only - Hidden on Mobile) -->
+    <!-- Language Switcher (Desktop Only) -->
     <div id="lang-switcher" class="fixed top-6 right-6 z-50 hidden md:block opacity-0 animate-fade-down"
         style="animation-delay: 0.1s;">
         <div class="flex items-center bg-white/5 backdrop-blur-md border border-white/10 rounded-full p-1">
@@ -929,39 +945,49 @@
         // ===== MOBILE MENU TOGGLE =====
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
         const menuIconOpen = document.getElementById('menuIconOpen');
         const menuIconClose = document.getElementById('menuIconClose');
         const contactBtnMobile = document.getElementById('contactBtnMobile');
 
+        function openMobileMenu() {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+            mobileMenuBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+            mobileMenuBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+            menuIconOpen.classList.add('hidden');
+            menuIconClose.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenuBackdrop.classList.add('opacity-0', 'pointer-events-none');
+            mobileMenuBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+            menuIconOpen.classList.remove('hidden');
+            menuIconClose.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
         if (mobileMenuToggle && mobileMenu) {
             mobileMenuToggle.addEventListener('click', () => {
-                const isOpen = !mobileMenu.classList.contains('hidden');
+                const isOpen = !mobileMenu.classList.contains('translate-x-full');
                 if (isOpen) {
-                    // Close menu
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
-                    menuIconOpen.classList.remove('hidden');
-                    menuIconClose.classList.add('hidden');
-                    document.body.style.overflow = '';
+                    closeMobileMenu();
                 } else {
-                    // Open menu
-                    mobileMenu.classList.remove('hidden');
-                    mobileMenu.classList.add('flex');
-                    menuIconOpen.classList.add('hidden');
-                    menuIconClose.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
+                    openMobileMenu();
                 }
             });
 
+            // Close menu when clicking backdrop
+            if (mobileMenuBackdrop) {
+                mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+            }
+
             // Close menu when clicking a link
             mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
-                    menuIconOpen.classList.remove('hidden');
-                    menuIconClose.classList.add('hidden');
-                    document.body.style.overflow = '';
-                });
+                link.addEventListener('click', closeMobileMenu);
             });
         }
 
@@ -970,12 +996,7 @@
             contactBtnMobile.addEventListener('click', () => {
                 navigator.clipboard.writeText('martim@ramosdigital.pt').then(() => {
                     showToast('📧 Email copied to clipboard!');
-                    // Close menu after action
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
-                    menuIconOpen.classList.remove('hidden');
-                    menuIconClose.classList.add('hidden');
-                    document.body.style.overflow = '';
+                    closeMobileMenu();
                 });
             });
         }
