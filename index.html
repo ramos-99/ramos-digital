@@ -231,6 +231,25 @@
         .animate-fade-down {
             animation: fadeDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+
+        /* Slide-up fade animation for hero headline */
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slide-up-fade {
+            opacity: 0;
+            animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.2s;
+        }
     </style>
 
     <!-- Navigation (Clean Single-Row Header) -->
@@ -289,7 +308,7 @@
                 </div>
 
                 <h1
-                    class="font-heading text-5xl sm:text-7xl md:text-[9rem] font-bold tracking-tighter mb-6 md:mb-8 leading-[0.9]">
+                    class="font-heading text-5xl sm:text-7xl md:text-[9rem] font-bold tracking-tighter mb-6 md:mb-8 leading-[0.9] animate-slide-up-fade">
                     Martim<br class="md:hidden"> Ramos<span class="text-electric-400">.</span>
                 </h1>
 
@@ -871,8 +890,10 @@
 
         // ===== CONTACT BUTTON: Copy Email =====
         document.getElementById('contactBtn').addEventListener('click', () => {
+            const lang = document.documentElement.lang || 'en';
+            const message = translations.toast_email_copied ? translations.toast_email_copied[lang] : '📧 Email copied!';
             navigator.clipboard.writeText('martim@ramosdigital.pt').then(() => {
-                showToast('📧 Email copied to clipboard!');
+                showToast(message);
             });
         });
 
@@ -883,7 +904,9 @@
             const btnText = btn.querySelector('span');
 
             if (!input.value.trim()) {
-                showToast('⚠️ Please enter a URL first', 2000);
+                const lang = document.documentElement.lang || 'en';
+                const errorMsg = translations.toast_url_error ? translations.toast_url_error[lang] : '⚠️ Please enter a URL first';
+                showToast(errorMsg, 2000);
                 return;
             }
 
@@ -894,9 +917,11 @@
 
             // Simulate analysis
             setTimeout(() => {
+                const lang = document.documentElement.lang || 'en';
                 btn.classList.remove('btn-loading');
-                btnText.textContent = '✓ Done!';
-                showToast('🚀 Analysis complete! Check console for report.');
+                btnText.textContent = '✓';
+                const successMsg = translations.toast_audit_complete ? translations.toast_audit_complete[lang] : '✅ Analysis complete!';
+                showToast(successMsg);
                 console.log(`[Ramos Digital Audit] Analysis for: ${input.value}`);
                 console.log('Performance Score: 98/100');
                 console.log('Accessibility: 100/100');
@@ -965,33 +990,33 @@
             nav_about: { en: 'About', pt: 'Sobre' },
             nav_projects: { en: 'Projects', pt: 'Projetos' },
             nav_development: { en: 'Web Development', pt: 'Desenvolvimento Web' },
-            nav_web: { en: 'Web', pt: 'Web' },
-            nav_contact: { en: 'Contact', pt: 'Contacto' },
+            nav_web: { en: 'My Work', pt: 'O Meu Trabalho' },
+            nav_contact: { en: "Let's Talk", pt: 'Falar Comigo' },
 
             // Hero
-            hero_status: { en: 'Available for projects', pt: 'Disponível para projetos' },
-            hero_subtitle: { en: 'Computer Engineering @ <span class="text-white">Técnico Lisboa</span>', pt: 'Engenharia Informática @ <span class="text-white">Técnico Lisboa</span>' },
-            hero_desc: { en: 'Crafting high-performance digital experiences with precision engineering.', pt: 'A criar experiências digitais de alto desempenho com engenharia de precisão.' },
+            hero_status: { en: 'Open to new projects', pt: 'Aberto a novos projetos' },
+            hero_subtitle: { en: 'I turn complex code into simple digital experiences.', pt: 'Transformo código complexo em experiências digitais simples.' },
+            hero_desc: { en: 'Software Engineering student @ <span class="text-white">Técnico Lisboa</span>. Precision engineering for the web.', pt: 'Estudante de Engenharia Informática @ <span class="text-white">Técnico Lisboa</span>. Engenharia de precisão para a web.' },
             hero_explore: { en: 'Explore', pt: 'Explorar' },
-            hero_solutions: { en: 'View Solutions', pt: 'Ver Soluções' },
+            hero_solutions: { en: 'See My Work', pt: 'Ver O Meu Trabalho' },
 
             // About Section
-            about_title: { en: 'The Engineer<span class="text-electric-400">.</span>', pt: 'O Engenheiro<span class="text-electric-400">.</span>' },
+            about_title: { en: 'About Me<span class="text-electric-400">.</span>', pt: 'Sobre Mim<span class="text-electric-400">.</span>' },
             about_edu_title: { en: 'Instituto Superior Técnico', pt: 'Instituto Superior Técnico' },
-            about_edu_desc: { en: '3rd Year Computer Engineering @ IST.<br>Focus on <span class="text-white">Algorithms</span>, <span class="text-white">Distributed Systems</span>, and <span class="text-white">High-Performance Computing</span>.', pt: '3º Ano de Engenharia Informática @ IST.<br>Foco em <span class="text-white">Algoritmos</span>, <span class="text-white">Sistemas Distribuídos</span> e <span class="text-white">Computação de Alto Desempenho</span>.' },
+            about_edu_desc: { en: '3rd Year Computer Engineering @ IST.<br>I focus on <span class="text-white">Algorithms</span>, <span class="text-white">Distributed Systems</span>, and <span class="text-white">High-Performance Computing</span>.', pt: '3º Ano de Engenharia Informática @ IST.<br>O meu foco é em <span class="text-white">Algoritmos</span>, <span class="text-white">Sistemas Distribuídos</span> e <span class="text-white">Computação de Alto Desempenho</span>.' },
             about_edu_note: { en: 'Top Technical University in Portugal', pt: 'Melhor Universidade Técnica de Portugal' },
             about_status: { en: 'Available', pt: 'Disponível' },
-            about_freelance: { en: 'Open for Freelance', pt: 'Aberto a Freelance' },
+            about_freelance: { en: 'Open for Projects', pt: 'Disponível para Projetos' },
             about_freelance_desc: { en: 'New projects & collaborations', pt: 'Novos projetos & colaborações' },
 
             // Feature Section
             feature_title: { en: "It's not about<br>saving time.", pt: 'Não é sobre<br>poupar tempo.' },
-            feature_desc: { en: "It's about feeling like you're never wasting it. Engineered for flow states.", pt: 'É sobre sentir que nunca o estás a desperdiçar. Engenharia para estados de fluxo.' },
+            feature_desc: { en: "It's about feeling like you're never wasting it. I engineer for flow states.", pt: 'É sobre sentir que nunca o estás a desperdiçar. Eu projeto para estados de fluxo.' },
             feature_cta: { en: 'Download CV', pt: 'Descarregar CV' },
 
             // Services Section
-            services_title: { en: 'Engineered for Performance<span class="text-amber-400">.</span>', pt: 'Engenharia para Performance<span class="text-amber-400">.</span>' },
-            services_desc: { en: 'High-performance websites and web applications built with precision. Every line of code optimized for speed, accessibility, and scalability.', pt: 'Websites e aplicações web de alta performance construídos com precisão. Cada linha de código otimizada para velocidade, acessibilidade e escalabilidade.' },
+            services_title: { en: 'What I Build<span class="text-amber-400">.</span>', pt: 'O Que Eu Construo<span class="text-amber-400">.</span>' },
+            services_desc: { en: 'No templates. I write custom code optimized for speed and scale. Your site will load instantly.', pt: 'Não uso templates. Escrevo código de raiz otimizado para velocidade e escala. O seu site vai carregar instantaneamente.' },
             services_audit_placeholder: { en: 'Enter your website URL to audit...', pt: 'Introduza o URL do seu site para auditoria...' },
             services_audit_btn: { en: 'Audit', pt: 'Auditar' },
             service1_title: { en: 'Performance Optimization', pt: 'Otimização de Performance' },
@@ -1002,24 +1027,29 @@
             service3_desc: { en: 'React/Next.js frontends. API architecture. Database design.', pt: 'Frontends React/Next.js. Arquitetura API. Design de base de dados.' },
 
             // Projects Section
-            projects_title: { en: 'Projects<span class="text-electric-400">.</span>', pt: 'Projetos<span class="text-electric-400">.</span>' },
+            projects_title: { en: 'My Projects<span class="text-electric-400">.</span>', pt: 'Os Meus Projetos<span class="text-electric-400">.</span>' },
             projects_scroll_hint: { en: '← Scroll horizontally →', pt: '← Deslize horizontalmente →' },
 
             // Contact Section
-            contact_title: { en: "Let's Build<span class=\"text-electric-400\">.</span>", pt: 'Vamos Construir<span class="text-electric-400">.</span>' },
-            contact_desc: { en: 'Have a project in mind? Let\'s discuss how we can work together.', pt: 'Tem um projeto em mente? Vamos discutir como podemos trabalhar juntos.' },
+            contact_title: { en: "Let's Build Together<span class=\"text-electric-400\">.</span>", pt: 'Vamos Construir Juntos<span class="text-electric-400">.</span>' },
+            contact_desc: { en: "Have a project in mind? I'd love to hear about it.", pt: 'Tem um projeto em mente? Adorava saber mais.' },
             contact_name: { en: 'Name', pt: 'Nome' },
             contact_email: { en: 'Email', pt: 'Email' },
             contact_message: { en: 'Message', pt: 'Mensagem' },
             contact_send: { en: 'Send Message', pt: 'Enviar Mensagem' },
 
             // Footer
-            footer_tagline: { en: 'Engineering the web in Lisbon<span class="text-electric-400">.</span>', pt: 'A engendrar a web em Lisboa<span class="text-electric-400">.</span>' },
-            footer_copyright: { en: '© 2024 Martim Ramos. All rights reserved.', pt: '© 2024 Martim Ramos. Todos os direitos reservados.' },
+            footer_tagline: { en: 'Engineering the web in Lisbon<span class="text-electric-400">.</span>', pt: 'A programar a web em Lisboa<span class="text-electric-400">.</span>' },
+            footer_copyright: { en: 'Designed & Engineered by Martim Ramos in Lisbon.', pt: 'Desenhado e Programado por Martim Ramos em Lisboa.' },
             footer_built: {
-                en: '<span class="text-electric-400/40">&lt;</span>Built with precision<span class="text-electric-400/40">/&gt;</span> · Tailwind CSS · No bloated builders',
-                pt: '<span class="text-electric-400/40">&lt;</span>Construído com precisão<span class="text-electric-400/40">/&gt;</span> · Tailwind CSS · Sem construtores pesados'
-            }
+                en: '<span class="text-electric-400/40">&lt;</span>Handcrafted with code<span class="text-electric-400/40">/&gt;</span> · Tailwind CSS · No bloated builders',
+                pt: '<span class="text-electric-400/40">&lt;</span>Feito à mão com código<span class="text-electric-400/40">/&gt;</span> · Tailwind CSS · Sem construtores pesados'
+            },
+
+            // Toast Messages (for JS notifications)
+            toast_email_copied: { en: '📧 Email copied!', pt: '📧 Email copiado!' },
+            toast_url_error: { en: '⚠️ Please enter a URL first', pt: '⚠️ Por favor introduza um URL primeiro' },
+            toast_audit_complete: { en: '✅ Analysis complete!', pt: '✅ Análise concluída!' }
         };
 
         // Language switching function
