@@ -154,80 +154,30 @@
 
 <body class="bg-[#0A0A0B] text-white font-sans antialiased overflow-x-hidden">
 
+    <!-- Navigation (Clean Single-Row Header) -->
     <nav
         class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-3xl px-4 md:px-2 opacity-0 animate-fade-down">
         <div
             class="bg-[#0A0A0B]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl shadow-black/50 px-4 md:px-6 py-2.5 md:py-3 flex items-center justify-between">
             <!-- Logo -->
             <a href="index.html"
-                class="font-heading font-semibold text-lg tracking-tight flex items-center gap-2 relative z-50">
+                class="font-heading font-semibold text-base md:text-lg tracking-tight flex items-center gap-2">
                 <div class="w-2 h-2 rounded-full bg-white"></div>
                 <span class="text-white">martim</span>
             </a>
 
-            <!-- Desktop Navigation (hidden on mobile) -->
-            <div class="hidden md:flex items-center gap-6">
-                <a href="index.html" class="text-sm text-white/50 hover:text-white transition-colors font-medium"
-                    data-i18n="nav_home">Home</a>
-                <span class="text-sm text-white font-medium border-b border-electric-400"
-                    data-i18n="nav_development">Web Development</span>
-                <a href="#contact"
-                    class="text-sm px-5 py-2 rounded-full bg-white text-black font-semibold hover:scale-105 hover:bg-gray-100 transition-all shadow-lg shadow-white/10"
-                    data-i18n="nav_quote">
-                    Get a Quote
-                </a>
-            </div>
+            <!-- Center: Current Page Indicator -->
+            <span class="text-xs md:text-sm text-electric-400 font-medium border-b border-electric-400"
+                data-i18n="nav_web">Web</span>
 
-            <!-- Hamburger Menu Toggle (Mobile Only) -->
-            <button id="mobileMenuToggle"
-                class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/10 relative z-50"
-                aria-label="Toggle menu">
-                <svg id="menuIconOpen" class="w-5 h-5 text-white transition-all duration-300" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <svg id="menuIconClose" class="w-5 h-5 text-white hidden transition-all duration-300" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
+            <!-- Right: Quote Button -->
+            <a href="#contact"
+                class="text-xs md:text-sm px-3 md:px-5 py-1.5 md:py-2 rounded-full bg-white text-black font-semibold hover:scale-105 hover:bg-gray-100 transition-all shadow-lg shadow-white/10"
+                data-i18n="nav_quote">
+                Get a Quote
+            </a>
         </div>
     </nav>
-
-    <!-- Mobile Menu Backdrop (Click to close) -->
-    <div id="mobileMenuBackdrop"
-        class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
-    </div>
-
-    <!-- Mobile Side-Panel Menu (Slides from Right) -->
-    <div id="mobileMenu"
-        class="fixed top-0 right-0 h-full w-3/4 max-w-xs z-50 bg-[#0A0A0B]/95 backdrop-blur-xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out md:hidden">
-
-        <!-- Panel Content -->
-        <div class="flex flex-col h-full pt-24 pb-10 px-8">
-
-            <!-- Navigation Links -->
-            <nav class="flex flex-col gap-6">
-                <a href="index.html"
-                    class="text-xl font-heading font-semibold text-white/70 hover:text-white transition-colors"
-                    data-i18n="nav_home">
-                    Home
-                </a>
-                <span class="text-xl font-heading font-semibold text-electric-400" data-i18n="nav_development">
-                    Web Development
-                </span>
-                <a href="#contact" id="quoteBtn_mobile"
-                    class="text-xl font-heading font-semibold text-white hover:text-electric-400 transition-colors"
-                    data-i18n="nav_quote">
-                    Get a Quote
-                </a>
-            </nav>
-
-            <!-- Spacer -->
-            <div class="flex-1"></div>
-        </div>
-    </div>
-
 
 
     <main class="relative">
@@ -717,54 +667,6 @@
             });
         });
 
-        // ===== MOBILE MENU TOGGLE =====
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
-        const menuIconOpen = document.getElementById('menuIconOpen');
-        const menuIconClose = document.getElementById('menuIconClose');
-
-        function openMobileMenu() {
-            mobileMenu.classList.remove('translate-x-full');
-            mobileMenu.classList.add('translate-x-0');
-            mobileMenuBackdrop.classList.remove('opacity-0', 'pointer-events-none');
-            mobileMenuBackdrop.classList.add('opacity-100', 'pointer-events-auto');
-            menuIconOpen.classList.add('hidden');
-            menuIconClose.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMobileMenu() {
-            mobileMenu.classList.add('translate-x-full');
-            mobileMenu.classList.remove('translate-x-0');
-            mobileMenuBackdrop.classList.add('opacity-0', 'pointer-events-none');
-            mobileMenuBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
-            menuIconOpen.classList.remove('hidden');
-            menuIconClose.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-
-        if (mobileMenuToggle && mobileMenu) {
-            mobileMenuToggle.addEventListener('click', () => {
-                const isOpen = !mobileMenu.classList.contains('translate-x-full');
-                if (isOpen) {
-                    closeMobileMenu();
-                } else {
-                    openMobileMenu();
-                }
-            });
-
-            // Close menu when clicking backdrop
-            if (mobileMenuBackdrop) {
-                mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
-            }
-
-            // Close menu when clicking a link
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', closeMobileMenu);
-            });
-        }
-
         // FAQ Accordion
         document.querySelectorAll('.accordion-trigger').forEach(trigger => {
             trigger.addEventListener('click', function () {
@@ -800,6 +702,7 @@
             // Navigation
             nav_home: { en: 'Home', pt: 'Início' },
             nav_development: { en: 'Web Development', pt: 'Desenvolvimento Web' },
+            nav_web: { en: 'Web', pt: 'Web' },
             nav_quote: { en: 'Get a Quote', pt: 'Pedir Orçamento' },
 
             // Hero Section
