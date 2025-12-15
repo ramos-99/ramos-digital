@@ -238,15 +238,17 @@
         class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-3xl px-4 md:px-2 opacity-0 animate-fade-down">
         <div
             class="bg-[#0A0A0B]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl shadow-black/50 px-4 md:px-6 py-2.5 md:py-3 flex items-center justify-between">
-            <a href="#" class="font-heading font-semibold text-lg tracking-tight flex items-center gap-2">
+            <!-- Logo -->
+            <a href="#" class="font-heading font-semibold text-lg tracking-tight flex items-center gap-2 z-50">
                 <div class="w-2 h-2 rounded-full bg-white"></div>
                 <span class="text-white">martim</span>
             </a>
 
-            <div class="flex items-center gap-6">
+            <!-- Desktop Navigation (hidden on mobile) -->
+            <div class="hidden md:flex items-center gap-6">
                 <!-- Main Service Link -->
                 <a href="web.html"
-                    class="hidden md:flex items-center gap-1.5 text-sm text-white font-medium hover:text-electric-400 transition-colors group">
+                    class="flex items-center gap-1.5 text-sm text-white font-medium hover:text-electric-400 transition-colors group">
                     <span data-i18n="nav_development">Web Development</span>
                     <svg class="w-3.5 h-3.5 text-white/50 group-hover:text-electric-400 transition-colors" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
@@ -255,19 +257,49 @@
                     </svg>
                 </a>
 
-                <!-- Primary Action -->
+                <!-- Primary Action (Desktop) -->
                 <button id="contactBtn"
-                    class="text-sm px-3 md:px-5 py-2 rounded-full bg-white text-black font-semibold hover:scale-105 hover:bg-gray-100 transition-all shadow-lg shadow-white/10"
+                    class="text-sm px-5 py-2 rounded-full bg-white text-black font-semibold hover:scale-105 hover:bg-gray-100 transition-all shadow-lg shadow-white/10"
                     data-i18n="nav_contact">
                     Contact
                 </button>
             </div>
+
+            <!-- Hamburger Menu Toggle (Mobile Only) -->
+            <button id="mobileMenuToggle"
+                class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/10 z-50"
+                aria-label="Toggle menu">
+                <svg id="menuIconOpen" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="menuIconClose" class="w-5 h-5 text-white hidden" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
         </div>
     </nav>
 
-    <!-- Language Switcher (Bottom-Right on Mobile, Top-Right on Desktop) -->
+    <!-- Mobile Menu Overlay (Hidden by default) -->
+    <div id="mobileMenu"
+        class="fixed inset-0 z-40 bg-[#0A0A0B]/95 backdrop-blur-xl hidden md:hidden flex-col items-center justify-center gap-8">
+        <a href="web.html"
+            class="text-2xl font-heading font-semibold text-white hover:text-electric-400 transition-colors flex items-center gap-2">
+            <span data-i18n="nav_development">Web Development</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+        </a>
+        <button id="contactBtnMobile"
+            class="text-xl px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-100 transition-all"
+            data-i18n="nav_contact">
+            Contact
+        </button>
+    </div>
+
+    <!-- Language Switcher (Scaled down on mobile, Top-Right on Desktop) -->
     <div id="lang-switcher"
-        class="fixed bottom-6 right-6 md:top-6 md:right-6 md:bottom-auto z-50 opacity-0 animate-fade-down"
+        class="fixed top-4 right-4 z-50 scale-75 md:scale-100 md:top-6 md:right-6 opacity-0 animate-fade-down origin-top-right"
         style="animation-delay: 0.1s;">
         <div class="flex items-center bg-white/5 backdrop-blur-md border border-white/10 rounded-full p-1">
             <button id="lang-btn-pt"
@@ -280,6 +312,7 @@
             </button>
         </div>
     </div>
+
 
     <main class="relative">
 
@@ -877,6 +910,60 @@
                 showToast('📧 Email copied to clipboard!');
             });
         });
+
+        // ===== MOBILE MENU TOGGLE =====
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIconOpen = document.getElementById('menuIconOpen');
+        const menuIconClose = document.getElementById('menuIconClose');
+        const contactBtnMobile = document.getElementById('contactBtnMobile');
+
+        if (mobileMenuToggle && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', () => {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                if (isOpen) {
+                    // Close menu
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                    document.body.style.overflow = '';
+                } else {
+                    // Open menu
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                    menuIconOpen.classList.add('hidden');
+                    menuIconClose.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+
+            // Close menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+
+        // Mobile Contact Button: Copy Email
+        if (contactBtnMobile) {
+            contactBtnMobile.addEventListener('click', () => {
+                navigator.clipboard.writeText('martim@ramosdigital.pt').then(() => {
+                    showToast('📧 Email copied to clipboard!');
+                    // Close menu after action
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
 
         // ===== AUDIT BUTTON: Simulated Analysis =====
         document.getElementById('auditBtn').addEventListener('click', function () {
