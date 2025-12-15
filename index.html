@@ -310,38 +310,10 @@
 
             <!-- Spacer -->
             <div class="flex-1"></div>
-
-            <!-- Language Switcher (Bottom of Panel) -->
-            <div class="pt-8 border-t border-white/10">
-                <p class="text-xs text-white/40 uppercase tracking-wider mb-3">Language</p>
-                <div class="flex items-center bg-white/10 rounded-full p-1">
-                    <button id="lang-btn-pt-mobile"
-                        class="flex-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-400 hover:text-white">
-                        PT
-                    </button>
-                    <button id="lang-btn-en-mobile"
-                        class="flex-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-white text-black shadow-sm">
-                        EN
-                    </button>
-                </div>
-            </div>
         </div>
     </div>
 
-    <!-- Language Switcher (Desktop Only) -->
-    <div id="lang-switcher" class="fixed top-6 right-6 z-50 hidden md:block opacity-0 animate-fade-down"
-        style="animation-delay: 0.1s;">
-        <div class="flex items-center bg-white/5 backdrop-blur-md border border-white/10 rounded-full p-1">
-            <button id="lang-btn-pt"
-                class="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 text-gray-400 hover:text-white">
-                PT
-            </button>
-            <button id="lang-btn-en"
-                class="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 bg-white text-black shadow-sm">
-                EN
-            </button>
-        </div>
-    </div>
+
 
 
 
@@ -899,12 +871,25 @@
                     </div>
                 </div>
 
-                <!-- Bottom: Technical Credits -->
-                <div class="mt-12 pt-8 border-t border-white/5 text-center">
+                <!-- Bottom: Technical Credits + Language Switcher -->
+                <div
+                    class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
                     <p class="text-white/20 text-xs font-mono" data-i18n="footer_built">
                         <span class="text-electric-400/40">&lt;</span>Built with precision<span
                             class="text-electric-400/40">/&gt;</span> · Tailwind CSS · No bloated builders
                     </p>
+
+                    <!-- Language Switcher (Footer) -->
+                    <div class="flex items-center bg-white/5 border border-white/10 rounded-full p-1">
+                        <button id="lang-btn-pt"
+                            class="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 text-gray-400 hover:text-white">
+                            PT
+                        </button>
+                        <button id="lang-btn-en"
+                            class="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 bg-white text-black shadow-sm">
+                            EN
+                        </button>
+                    </div>
                 </div>
             </div>
         </footer>
@@ -1163,14 +1148,10 @@
                 }
             });
 
-            // Update toggle UI (segmented control style) - Desktop
+            // Update toggle UI (segmented control style)
             const enBtn = document.getElementById('lang-btn-en');
             const ptBtn = document.getElementById('lang-btn-pt');
-            // Mobile buttons
-            const enBtnMobile = document.getElementById('lang-btn-en-mobile');
-            const ptBtnMobile = document.getElementById('lang-btn-pt-mobile');
 
-            // Update desktop buttons
             if (enBtn && ptBtn) {
                 if (lang === 'en') {
                     enBtn.classList.add('bg-white', 'text-black', 'shadow-sm');
@@ -1185,21 +1166,6 @@
                 }
             }
 
-            // Update mobile buttons
-            if (enBtnMobile && ptBtnMobile) {
-                if (lang === 'en') {
-                    enBtnMobile.classList.add('bg-white', 'text-black', 'shadow-sm');
-                    enBtnMobile.classList.remove('text-gray-400', 'hover:text-white');
-                    ptBtnMobile.classList.remove('bg-white', 'text-black', 'shadow-sm');
-                    ptBtnMobile.classList.add('text-gray-400', 'hover:text-white');
-                } else {
-                    ptBtnMobile.classList.add('bg-white', 'text-black', 'shadow-sm');
-                    ptBtnMobile.classList.remove('text-gray-400', 'hover:text-white');
-                    enBtnMobile.classList.remove('bg-white', 'text-black', 'shadow-sm');
-                    enBtnMobile.classList.add('text-gray-400', 'hover:text-white');
-                }
-            }
-
             // Update HTML lang attribute
             document.documentElement.lang = lang;
 
@@ -1207,12 +1173,9 @@
             localStorage.setItem('language', lang);
         }
 
-        // Language button handlers - Desktop
+        // Language button handlers
         const langBtnEn = document.getElementById('lang-btn-en');
         const langBtnPt = document.getElementById('lang-btn-pt');
-        // Mobile
-        const langBtnEnMobile = document.getElementById('lang-btn-en-mobile');
-        const langBtnPtMobile = document.getElementById('lang-btn-pt-mobile');
 
         if (langBtnEn) {
             langBtnEn.addEventListener('click', function () {
@@ -1221,17 +1184,6 @@
         }
         if (langBtnPt) {
             langBtnPt.addEventListener('click', function () {
-                changeLanguage('pt');
-            });
-        }
-        // Mobile handlers
-        if (langBtnEnMobile) {
-            langBtnEnMobile.addEventListener('click', function () {
-                changeLanguage('en');
-            });
-        }
-        if (langBtnPtMobile) {
-            langBtnPtMobile.addEventListener('click', function () {
                 changeLanguage('pt');
             });
         }
