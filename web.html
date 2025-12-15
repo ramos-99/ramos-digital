@@ -170,7 +170,7 @@
                         data-i18n="nav_development">Web Development</span>
                 </div>
                 <a href="#contact"
-                    class="text-sm px-5 py-2 rounded-full bg-white text-black font-semibold hover:scale-105 hover:bg-gray-100 transition-all shadow-lg shadow-white/10"
+                    class="text-sm px-3 md:px-5 py-2 rounded-full bg-white text-black font-semibold hover:scale-105 hover:bg-gray-100 transition-all shadow-lg shadow-white/10"
                     data-i18n="nav_quote">
                     Get a Quote
                 </a>
@@ -178,8 +178,9 @@
         </div>
     </nav>
 
-    <!-- Language Switcher (Fixed Top-Right) -->
-    <div id="lang-switcher" class="fixed top-4 right-4 md:top-6 md:right-6 z-50 opacity-0 animate-fade-down"
+    <!-- Language Switcher (Bottom-Right on Mobile, Top-Right on Desktop) -->
+    <div id="lang-switcher"
+        class="fixed bottom-6 right-6 md:top-6 md:right-6 md:bottom-auto z-50 opacity-0 animate-fade-down"
         style="animation-delay: 0.1s;">
         <div class="flex items-center bg-white/5 backdrop-blur-md border border-white/10 rounded-full p-1">
             <button id="lang-btn-pt"
@@ -211,7 +212,7 @@
                     visitors into revenue.
                 </p>
                 <a href="#contact"
-                    class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition-all reveal"
+                    class="relative z-40 inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition-all reveal"
                     data-i18n="hero_cta">
                     Get a Free Audit
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
