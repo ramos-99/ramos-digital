@@ -159,7 +159,8 @@
         <div
             class="bg-[#0A0A0B]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl shadow-black/50 px-4 md:px-6 py-2.5 md:py-3 flex items-center justify-between">
             <!-- Logo -->
-            <a href="index.html" class="font-heading font-semibold text-lg tracking-tight flex items-center gap-2 z-50">
+            <a href="index.html"
+                class="font-heading font-semibold text-lg tracking-tight flex items-center gap-2 relative z-50">
                 <div class="w-2 h-2 rounded-full bg-white"></div>
                 <span class="text-white">martim</span>
             </a>
@@ -179,7 +180,7 @@
 
             <!-- Hamburger Menu Toggle (Mobile Only) -->
             <button id="mobileMenuToggle"
-                class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/10 z-50"
+                class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/10 relative z-50"
                 aria-label="Toggle menu">
                 <svg id="menuIconOpen" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -194,25 +195,38 @@
 
     <!-- Mobile Menu Overlay (Hidden by default) -->
     <div id="mobileMenu"
-        class="fixed inset-0 z-40 bg-[#0A0A0B]/95 backdrop-blur-xl hidden md:hidden flex-col items-center justify-center gap-8">
+        class="fixed inset-0 z-40 bg-[#0A0A0B]/98 backdrop-blur-xl hidden flex-col items-center justify-center gap-10 pt-20">
+
+        <!-- Navigation Links -->
         <a href="index.html"
-            class="text-2xl font-heading font-semibold text-white/70 hover:text-white transition-colors"
+            class="text-3xl font-heading font-semibold text-white/70 hover:text-white transition-colors"
             data-i18n="nav_home">
             Home
         </a>
-        <span class="text-2xl font-heading font-semibold text-electric-400" data-i18n="nav_development">
+        <span class="text-3xl font-heading font-semibold text-electric-400" data-i18n="nav_development">
             Web Development
         </span>
         <a href="#contact" id="quoteBtn_mobile"
-            class="text-xl px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-100 transition-all"
+            class="text-xl px-10 py-4 rounded-full bg-white text-black font-semibold hover:bg-gray-100 transition-all shadow-lg"
             data-i18n="nav_quote">
             Get a Quote
         </a>
+
+        <!-- Language Switcher (Inside Mobile Menu) -->
+        <div class="mt-8 flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-1.5">
+            <button id="lang-btn-pt-mobile"
+                class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-400 hover:text-white">
+                PT
+            </button>
+            <button id="lang-btn-en-mobile"
+                class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-white text-black shadow-sm">
+                EN
+            </button>
+        </div>
     </div>
 
-    <!-- Language Switcher (Scaled down on mobile, Top-Right on Desktop) -->
-    <div id="lang-switcher"
-        class="fixed top-4 right-4 z-50 scale-75 md:scale-100 md:top-6 md:right-6 opacity-0 animate-fade-down origin-top-right"
+    <!-- Language Switcher (Desktop Only - Hidden on Mobile) -->
+    <div id="lang-switcher" class="fixed top-6 right-6 z-50 hidden md:block opacity-0 animate-fade-down"
         style="animation-delay: 0.1s;">
         <div class="flex items-center bg-white/5 backdrop-blur-md border border-white/10 rounded-full p-1">
             <button id="lang-btn-pt"
@@ -864,20 +878,41 @@
                 }
             });
 
-            // Update toggle UI (segmented control style)
+            // Update toggle UI (segmented control style) - Desktop
             const enBtn = document.getElementById('lang-btn-en');
             const ptBtn = document.getElementById('lang-btn-pt');
+            // Mobile buttons
+            const enBtnMobile = document.getElementById('lang-btn-en-mobile');
+            const ptBtnMobile = document.getElementById('lang-btn-pt-mobile');
 
-            if (lang === 'en') {
-                enBtn.classList.add('bg-white', 'text-black', 'shadow-sm');
-                enBtn.classList.remove('text-gray-400', 'hover:text-white');
-                ptBtn.classList.remove('bg-white', 'text-black', 'shadow-sm');
-                ptBtn.classList.add('text-gray-400', 'hover:text-white');
-            } else {
-                ptBtn.classList.add('bg-white', 'text-black', 'shadow-sm');
-                ptBtn.classList.remove('text-gray-400', 'hover:text-white');
-                enBtn.classList.remove('bg-white', 'text-black', 'shadow-sm');
-                enBtn.classList.add('text-gray-400', 'hover:text-white');
+            // Update desktop buttons
+            if (enBtn && ptBtn) {
+                if (lang === 'en') {
+                    enBtn.classList.add('bg-white', 'text-black', 'shadow-sm');
+                    enBtn.classList.remove('text-gray-400', 'hover:text-white');
+                    ptBtn.classList.remove('bg-white', 'text-black', 'shadow-sm');
+                    ptBtn.classList.add('text-gray-400', 'hover:text-white');
+                } else {
+                    ptBtn.classList.add('bg-white', 'text-black', 'shadow-sm');
+                    ptBtn.classList.remove('text-gray-400', 'hover:text-white');
+                    enBtn.classList.remove('bg-white', 'text-black', 'shadow-sm');
+                    enBtn.classList.add('text-gray-400', 'hover:text-white');
+                }
+            }
+
+            // Update mobile buttons
+            if (enBtnMobile && ptBtnMobile) {
+                if (lang === 'en') {
+                    enBtnMobile.classList.add('bg-white', 'text-black', 'shadow-sm');
+                    enBtnMobile.classList.remove('text-gray-400', 'hover:text-white');
+                    ptBtnMobile.classList.remove('bg-white', 'text-black', 'shadow-sm');
+                    ptBtnMobile.classList.add('text-gray-400', 'hover:text-white');
+                } else {
+                    ptBtnMobile.classList.add('bg-white', 'text-black', 'shadow-sm');
+                    ptBtnMobile.classList.remove('text-gray-400', 'hover:text-white');
+                    enBtnMobile.classList.remove('bg-white', 'text-black', 'shadow-sm');
+                    enBtnMobile.classList.add('text-gray-400', 'hover:text-white');
+                }
             }
 
             // Update HTML lang attribute
@@ -887,13 +922,34 @@
             localStorage.setItem('language', lang);
         }
 
-        // Language button handlers
-        document.getElementById('lang-btn-en').addEventListener('click', function () {
-            changeLanguage('en');
-        });
-        document.getElementById('lang-btn-pt').addEventListener('click', function () {
-            changeLanguage('pt');
-        });
+        // Language button handlers - Desktop
+        const langBtnEn = document.getElementById('lang-btn-en');
+        const langBtnPt = document.getElementById('lang-btn-pt');
+        // Mobile
+        const langBtnEnMobile = document.getElementById('lang-btn-en-mobile');
+        const langBtnPtMobile = document.getElementById('lang-btn-pt-mobile');
+
+        if (langBtnEn) {
+            langBtnEn.addEventListener('click', function () {
+                changeLanguage('en');
+            });
+        }
+        if (langBtnPt) {
+            langBtnPt.addEventListener('click', function () {
+                changeLanguage('pt');
+            });
+        }
+        // Mobile handlers
+        if (langBtnEnMobile) {
+            langBtnEnMobile.addEventListener('click', function () {
+                changeLanguage('en');
+            });
+        }
+        if (langBtnPtMobile) {
+            langBtnPtMobile.addEventListener('click', function () {
+                changeLanguage('pt');
+            });
+        }
 
         // Initialize language on page load
         (function initLanguage() {
